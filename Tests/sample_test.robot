@@ -11,6 +11,9 @@ Test Teardown  Common.Close test browser
 
 Example of connecting to Lambdatest via Robot Framework 
 	[Timeout]   ${TIMEOUT}
+	
+	Execute Javascript  smartui.takeScreenshot
+	
 	Page should contain element  name:li1
 	Page should contain element  name:li2
 
