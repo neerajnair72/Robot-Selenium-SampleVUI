@@ -4,18 +4,11 @@ Library  LambdaTestStatus.py
 
 *** Variables ***
 
-@{_tmp}
-    ...  browserName: ${browserName},
-    ...  platform: ${platform},
-    ...  version: ${version},
-    ...  visual: ${visual},
-    ...  network: ${network},
-    ...  console: ${console},
-    ...  name: RobotFramework Lambda Test
 
 ${BROWSER}          ${ROBOT_BROWSER}
-${CAPABILITIES}     ${EMPTY.join(${_tmp})}
-${REMOTE_URL}       http://%{LT_USERNAME}:%{LT_ACCESS_KEY}@hub.lambdatest.com/wd/hub
+&{options}          platformName=${platform}    version=${version}    visual=${visual}    network=${network}    name=RobotFramework LambdaTest    browserName=${browserName}    smartUI.project=Veer    build=VisualUI
+&{CAPABILITIES}     LT:Options=&{options}
+${REMOTE_URL}       http://USERNAME:ACCESS_KEY@hub.lambdatest.com/wd/hub
 ${TIMEOUT}          3000
 
 *** Keywords ***
